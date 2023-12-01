@@ -2,20 +2,18 @@
 // https://github.com/hayleigh-dot-dev/gleam-lustre
 // Thank you Hayleigh 💙
 
+import { createContext, createElement, render as renderApp } from "preact";
 import {
-  createElement,
   useState,
   useEffect,
   useReducer,
-  createContext,
-  useContext,
   useMemo,
   useCallback,
   useId,
-  useTransition,
+  //useTransition,
   useDebugValue,
-} from "react";
-import { createRoot } from "react-dom/client";
+  useContext
+} from "preact/hooks";
 import * as Option from "../gleam_stdlib/gleam/option.mjs";
 import * as GleamJS from "../gleam_javascript/gleam.mjs";
 import * as Gleam from "./gleam.mjs";
@@ -29,7 +27,7 @@ export {
   useMemo,
   useCallback,
   useId,
-  useTransition,
+  //useTransition,
   useDebugValue,
 };
 
@@ -137,7 +135,7 @@ export const component = (element) => {
 
 export const create = (fc, props, children) => {
   return createElement(fc, props, [...children]);
-}
+};
 
 // CONTEXT --------------------------------------------------------------------
 
@@ -177,21 +175,20 @@ export { useContext };
 
 export const provideContext = (getter, value, render) => {
   const ctx = getter();
-  return createElement(ctx.Provider, {value}, render());
-}
+  return createElement(ctx.Provider, { value }, render());
+};
 
 // UTILITY --------------------------------------------------------------------
 
 /**
- * Render a React app to an element
- * @param {Element} app Root element of a React app
+ * Render a Preact app to an element
+ * @param {Element} app Root element of a Preact app
  * @param {string} selector Query selector for the element that the app will attach to
  */
 export const render = (app, selector) => {
   const rootElement = document.querySelector(selector);
-  const reactRoot = createRoot(rootElement);
 
-  reactRoot.render(app);
+  renderApp(app, rootElement);
 };
 
 // ATTRIBUTE ------------------------------------------------------------------

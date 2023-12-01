@@ -203,8 +203,8 @@ pub fn use_id() -> String
 
 // TRANSITION -----------------------------------------------------------------
 
-@external(javascript, "../ffi.mjs", "useTransition")
-pub fn use_transition(cb: fn() -> Nil) -> #(Bool, fn() -> Nil)
+// @external(javascript, "../ffi.mjs", "useTransition")
+// pub fn use_transition(cb: fn() -> Nil) -> #(Bool, fn() -> Nil)
 
 // DEBUG VALUE ----------------------------------------------------------------
 

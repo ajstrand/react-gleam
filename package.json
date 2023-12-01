@@ -1,11 +1,14 @@
 {
-  "name": "react_gleam",
+  "name": "preact_gleam",
   "version": "1.0.0",
   "main": "index.js",
   "author": "brettkolodny <brettkolodny@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev":"cd example && gleam build && yarn dev"
+  },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "preact": "10.19.2",
+    "preact-render-to-string": "6.3.1"
   }
 }

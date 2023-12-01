@@ -4,8 +4,8 @@ import react_gleam/element
 import gleeunit/should
 import gleam/string
 
-@external(javascript, "react-dom/server", "renderToStaticMarkup")
-fn render_to_static(element: Element) -> String
+@external(javascript, "preact-render-to-string", "render")
+fn render_to_string(element: Element) -> String
 
 type Pet {
   Pet(name: String)
@@ -31,6 +31,6 @@ fn pet_profile(props: Pet) -> Element {
 
 pub fn first_test() {
   element.create(pet_profile, Pet(name: "Garfield"), [])
-  |> render_to_static()
+  |> render_to_string()
   |> should.equal("<div>A pet called Garfield is Sitting</div>")
 }

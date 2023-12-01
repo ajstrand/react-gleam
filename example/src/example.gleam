@@ -10,7 +10,7 @@ fn app() {
   div(
     [],
     [
-      h1([], [text("Welcome to Gleam React!")]),
+      h1([], [text("Welcome to Gleam Preact!")]),
       h2([], [text("A counter with use_state")]),
       counter(count: 6),
     ],
