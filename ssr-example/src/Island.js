@@ -1,5 +1,3 @@
-import React from 'react'
-
 const isServer = typeof window === `undefined`;
 const  Island = ({
     children,
@@ -9,7 +7,8 @@ const  Island = ({
   }) => {
     let hydrationProps;
     if(isServer){
-      hydrationProps = JSON.stringify(React.Children.only(children).props);
+      const {props} = children;
+      hydrationProps = JSON.stringify(props)
     }
     return (
       <IslandComponent

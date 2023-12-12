@@ -1,5 +1,5 @@
 import gleam/int
-import react_gleam.{component}
+import react_gleam.{component, create}
 import react_gleam/element.{button, div, text}
 import react_gleam/event.{on_click}
 import react_gleam/hook.{use_state}

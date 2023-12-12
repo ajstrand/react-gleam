@@ -7,7 +7,7 @@ const callback = () => {};
 const main = () => {
 
     const project = process.cwd()
-    const build = "build/dev/javascript/example"
+    const build = "build/dev/javascript/ssr"
     const dir = `${project}/${build}`
     const filesToGrab =  join(dir, 'entry-**.js')
     const island =  join(dir, 'Island.js')

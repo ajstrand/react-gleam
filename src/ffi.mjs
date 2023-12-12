@@ -98,7 +98,7 @@ export const useContextHook = (key) => {
 // ELEMENTS -------------------------------------------------------------------
 
 /**
- * Creates a react Element
+ * Creates a preact Element
  * @param {string} type Type of Element to create
  * @param {List<Children>} children List of child elements
  * @param {List<Attribute>} _attributes List of element attributes and props

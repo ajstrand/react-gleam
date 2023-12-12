@@ -1,13 +1,12 @@
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
-//import App from './main'
+import { render } from "preact-render-to-string";
 import Island from './Island'
-import Counter from "./main";
+import Counter from "./main.js";
 
-export function render() {
-  const html = ReactDOMServer.renderToString(
+export const renderComponent = async () => {
+  const html = render(
   <Island componentName="Counter" islandTag='span'>
       <Counter count={4}/>
+      {/* <div>hi from a server</div> */}
   </Island>
   )
   return { html }

@@ -20,3 +20,6 @@ pub fn set_context(key: String, value: g) -> Nil
 
 @external(javascript, "./ffi.mjs", "component")
 pub fn component(element: fn() -> Element) -> Element
+
+@external(javascript, "./ffi.mjs", "create")
+pub fn create(element: fn() -> Element) -> Element

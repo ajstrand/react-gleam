@@ -39,7 +39,7 @@ app.use('*', async (req, res) => {
   try {
     const url = req.originalUrl.replace(base, '')
 
-    const build = "/build/dev/javascript/example"
+    const build = "./build/dev/javascript/ssr"
     const serverFile = "/entry-server.jsx"
     const fullPath = `${build}${serverFile}`
     let template
@@ -48,11 +48,14 @@ app.use('*', async (req, res) => {
       // Always read fresh template in development
       template = await fs.readFile('./index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
-      render = (await vite.ssrLoadModule(fullPath)).render
+      const {renderComponent} = await vite.ssrLoadModule(fullPath)
+      render = await renderComponent
     } else {
       template = templateHtml
-      render = (await import('./dist/server/entry-server.js')).render
+      const {renderComponent} = await import('./dist/server/entry-server.js')
+      render = renderComponent
     }
+    console.log(render)
 
     const rendered = await render(url, ssrManifest)
 

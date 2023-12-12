@@ -1,8 +1,7 @@
-import React from 'react'
-import { hydrateRoot } from 'react-dom/client'
+import { hydrate } from "preact";
 
-export function hydrateIslands(
-  islands) {
+const hydrateIslands = (
+  islands) => {
   const isles = document.querySelectorAll(
     "[data-tropical-hydration-component]"
   );
@@ -25,6 +24,8 @@ export function hydrateIslands(
     const data = island.dataset.tropicalHydrationProps;
     const hydrationProps = JSON.parse(data);
 
-    hydrateRoot( island, <Component {...hydrationProps} />);
+    hydrate(<Component {...hydrationProps} />, island);
   });
 }
+
+export default hydrateIslands

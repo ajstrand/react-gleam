@@ -1,4 +1,4 @@
-name = "example"
+name = "client_side_example"
 version = "0.1.0"
 
 target = "javascript"
