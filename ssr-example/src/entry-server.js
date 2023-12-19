@@ -6,7 +6,6 @@ export const renderComponent = async () => {
   const html = render(
   <Island componentName="Counter" islandTag='span'>
       <Counter count={4}/>
-      {/* <div>hi from a server</div> */}
   </Island>
   )
   return { html }

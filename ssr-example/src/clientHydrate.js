@@ -3,7 +3,7 @@ import { hydrate } from "preact";
 const hydrateIslands = (
   islands) => {
   const isles = document.querySelectorAll(
-    "[data-tropical-hydration-component]"
+    "[data-hydration-component]"
   );
   if (isles.length === 0) {
     const errMessage = `there were no islands found in the DOM. 
@@ -11,17 +11,17 @@ const hydrateIslands = (
     console.warn(errMessage);
   }
   isles.forEach((island) => {
-    const Component = islands[island.dataset.tropicalHydrationComponent];
+    const Component = islands[island.dataset.hydrationComponent];
 
     if (!Component) {
-      const message = `Found a server-rendered Tropical Island for 
-      ${island.dataset.tropicalHydrationComponent} but that component was not passed to hydrateIslands`;
+      const message = `Found a server-rendered Island for 
+      ${island.dataset.hydrationComponent} but that component was not passed to hydrateIslands`;
 
       console.warn(message);
       return;
     }
 
-    const data = island.dataset.tropicalHydrationProps;
+    const data = island.dataset.hydrationProps;
     const hydrationProps = JSON.parse(data);
 
     hydrate(<Component {...hydrationProps} />, island);

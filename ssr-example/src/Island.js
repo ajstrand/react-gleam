@@ -12,8 +12,8 @@ const  Island = ({
     }
     return (
       <IslandComponent
-        data-tropical-hydration-component={componentName}
-        data-tropical-hydration-props={hydrationProps}
+        data-hydration-component={componentName}
+        data-hydration-props={hydrationProps}
         {...islandProps}
       >
         {children}

@@ -55,7 +55,6 @@ app.use('*', async (req, res) => {
       const {renderComponent} = await import('./dist/server/entry-server.js')
       render = renderComponent
     }
-    console.log(render)
 
     const rendered = await render(url, ssrManifest)
 
@@ -63,8 +62,6 @@ app.use('*', async (req, res) => {
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
     
-    console.log(html)
-
     res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
   } catch (e) {
     vite?.ssrFixStacktrace(e)
