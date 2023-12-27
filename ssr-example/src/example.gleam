@@ -1,5 +1,5 @@
 // import react_gleam/element.{div, h1, h2, text}
-// import counter.{type CountState, counter}
+// import counter.{CountState, counter}
 
 // pub fn main() {
 //   app()
